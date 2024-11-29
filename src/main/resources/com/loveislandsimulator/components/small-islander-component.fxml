@@ -1,56 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.loveislandsimulator.controllers.components.IslanderController">
-  <columnConstraints>
-    <ColumnConstraints />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <AnchorPane prefHeight="55.0" prefWidth="64.0">
-         <children>
-            <Text layoutX="16.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score">
-               <font>
-                  <Font size="12.0" />
-               </font>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0"
+          prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.loveislandsimulator.controllers.components.IslanderController">
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="72.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="159.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="199.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <AnchorPane prefHeight="55.0" prefWidth="64.0">
+        <Text layoutX="16.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score">
+            <font>
+                <Font size="12.0"/>
+            </font>
+        </Text>
+        <Text fx:id="scoreField" layoutX="25.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Text>
+    </AnchorPane>
+    <ImageView fx:id="avatarImage" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true"
+               GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+    <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="156.0" GridPane.columnIndex="2">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+        <Text fx:id="nameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Islander Name"
+              wrappingWidth="120.61029052734375">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Text>
+        <Text fx:id="strategyField" fill="#4a4747" strokeType="OUTSIDE" strokeWidth="0.0" text="Strategy Name"
+              wrappingWidth="114.80523681640625">
+            <font>
+                <Font size="11.0"/>
+            </font>
+        </Text>
+    </VBox>
+    <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+        <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Roles:"
+                  wrappingWidth="120.61029052734375">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
             </Text>
-            <Text fx:id="scoreField" layoutX="25.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <ImageView fx:id="avatarImage" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-      <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
-         <children>
-            <Text fx:id="nameField" strokeType="OUTSIDE" strokeWidth="0.0" text="Islander Name" wrappingWidth="120.61029052734375">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="strategyField" fill="#4a4747" strokeType="OUTSIDE" strokeWidth="0.0" text="Strategy Name" wrappingWidth="114.80523681640625">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-   </children>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                <CheckBox fx:id="leaderCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0"
+                          text="Leader"/>
+                <CheckBox fx:id="outsiderCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="117.0"
+                          text="Outsider"/>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                <CheckBox fx:id="flirtCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0"
+                          text="Flirt"/>
+                <CheckBox fx:id="doubleFacedCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="117.0"
+                          text="Double-Faced"/>
+            </HBox>
+        </children>
+    </VBox>
 </GridPane>
