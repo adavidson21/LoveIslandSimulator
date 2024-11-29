@@ -123,7 +123,7 @@ public class AssignChallengeController extends BaseController {
     private void populateIslanders() {
         String path = "/com/loveislandsimulator/components/small-islander-component.fxml";
         List<Islander> islanders = GameData.getInstance().getIslanders();
-        ControllerUtils.populateIslanders(islandersContainer, islanders, path);
+        ControllerUtils.populateIslanders(islandersContainer, islanders, path, true);
     }
 
     /**

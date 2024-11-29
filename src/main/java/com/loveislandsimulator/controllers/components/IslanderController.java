@@ -147,6 +147,18 @@ public class IslanderController {
     }
 
     /**
+     * Sets whether the checkboxes for roles are editable.
+     *
+     * @param editable True if the checkboxes should be editable, false otherwise.
+     */
+    public void setRolesEditable(boolean editable) {
+        leaderCheckbox.setDisable(!editable);
+        survivorCheckbox.setDisable(!editable);
+        rebelCheckbox.setDisable(!editable);
+        flirtCheckbox.setDisable(!editable);
+    }
+
+    /**
      * Gets the name from the name field.
      */
     public String getName() {

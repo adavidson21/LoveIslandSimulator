@@ -69,14 +69,14 @@ public class ChallengeResultsController extends BaseController implements Challe
     private void populateIslanders() {
         String path = "/com/loveislandsimulator/components/small-islander-component.fxml";
         List<Islander> islanders = GameData.getInstance().getIslanders();
-        ControllerUtils.populateIslanders(islandersContainer, islanders, path);
+        ControllerUtils.populateIslanders(islandersContainer, islanders, path, false);
     }
 
     /**
      * Updates the challenge title with the current challenge count.
      */
     private void updateChallengeTitle() {
-        titleText.setText("Love Island Challenge #" + GameData.getInstance().getChallengeCount());
+        titleText.setText("Love Island Challenge #" + GameData.getInstance().getChallengeCount() + " Results");
     }
 
     /**
