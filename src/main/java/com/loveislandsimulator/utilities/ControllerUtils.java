@@ -71,6 +71,8 @@ public class ControllerUtils {
                 controller.setRoles(islander.getRoles());
                 controller.setScore(islander.getScore());
 
+                islanderComponent.setUserData(controller);
+
                 container.getChildren().add(islanderComponent);
             }
         } catch (IOException e) {

@@ -82,13 +82,12 @@ public class IslanderSetupController extends BaseController {
     /**
      *  Method to control the Randomize Button in the GUI.
      *  This button will populate all available field(s) with random values, including
-     *  name, strategy, and role(s).
+     *  name and strategy.
      */
     public void onRandomizeButtonClick() {
         controllers.forEach(controller -> {
             randomizeName(controller);
             randomizeStrategy(controller);
-            randomizeRoles(controller);
         });
     }
 
@@ -105,7 +104,7 @@ public class IslanderSetupController extends BaseController {
 
             String name = controller.getNameField().getText();
             String strategy = controller.getStrategyComboBox().getValue();
-            Islander islander = getIslander(controller, name);
+            Islander islander = new Islander(name);
 
             islander.setAvatar(controller.getAvatar());
             islander.setBehaviorStrategy(IslanderBehaviorStrategy.fromString(strategy));
@@ -113,35 +112,6 @@ public class IslanderSetupController extends BaseController {
         }
 
         switchToView("islanders-view");
-    }
-
-    /**
-     * Gets the islander with all information populated on the UI.
-     *
-     * @param controller The New Islander Controller.
-     * @param name       The islander's name.
-     * @return The islander with all information set.
-     */
-    private static Islander getIslander(NewIslanderController controller, String name) {
-        Islander islander = new Islander(name);
-
-        if (controller.getLeaderCheckBox().isSelected()) {
-            islander = new LeaderRole(islander);
-        }
-
-        if (controller.getOutsiderCheckBox().isSelected()) {
-            islander = new OutsiderRole(islander);
-        }
-
-        if (controller.getFlirtCheckBox().isSelected()) {
-            islander = new FlirtRole(islander);
-        }
-
-        if (controller.getDoubleFacedCheckBox().isSelected()) {
-            islander = new DoubleFacedRole(islander);
-        }
-
-        return islander;
     }
 
     /**
@@ -162,17 +132,6 @@ public class IslanderSetupController extends BaseController {
         strategyComboBox.getItems().clear();
         strategyComboBox.getItems().addAll(this.strategies);
         strategyComboBox.setValue(this.strategies.get(random.nextInt(this.strategies.size())));
-    }
-
-    /**
-     * Randomizes the role selection and sets the associated checkboxes.
-     * @param controller The controller.
-     */
-    private void randomizeRoles(NewIslanderController controller){
-        controller.getLeaderCheckBox().setSelected(random.nextBoolean());
-        controller.getOutsiderCheckBox().setSelected(random.nextBoolean());
-        controller.getFlirtCheckBox().setSelected(random.nextBoolean());
-        controller.getDoubleFacedCheckBox().setSelected(random.nextBoolean());
     }
 
     /**

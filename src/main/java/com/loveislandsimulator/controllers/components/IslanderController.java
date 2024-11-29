@@ -3,10 +3,12 @@ package com.loveislandsimulator.controllers.components;
 import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.strategies.IslanderBehaviorStrategy;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +24,16 @@ public class IslanderController {
     private Text strategyField;
 
     @FXML
-    private Text rolesField;
+    private CheckBox leaderCheckbox;
+
+    @FXML
+    private CheckBox doubleFacedCheckbox;
+
+    @FXML
+    private CheckBox flirtCheckbox;
+
+    @FXML
+    private CheckBox outsiderCheckbox;
 
     @FXML
     private Text scoreField;
@@ -65,18 +76,80 @@ public class IslanderController {
     }
 
     /**
+     * Gets the selected roles for the islander.
+     *
+     * @return The roles that are selected.
+     */
+    public List<Role> getRoles() {
+        List<Role> roles = new ArrayList<>();
+
+        if (leaderCheckbox.isSelected()) {
+            roles.add(Role.LEADER);
+        }
+
+        if (outsiderCheckbox.isSelected()) {
+            roles.add(Role.OUTSIDER);
+        }
+
+        if (doubleFacedCheckbox.isSelected()) {
+            roles.add(Role.DOUBLE_FACED);
+        }
+
+        if (flirtCheckbox.isSelected()) {
+            roles.add(Role.FLIRT);
+        }
+
+        return roles;
+    }
+
+    /**
      * Set the islander's roles in the UI.
      * @param roles The list of roles to set.
      */
     public void setRoles(List<Role> roles) {
-        if(roles == null || roles.isEmpty()){
+        if (roles == null || roles.isEmpty()) {
+            if (leaderCheckbox != null) {
+                leaderCheckbox.setSelected(false);
+            }
+
+            if (outsiderCheckbox != null) {
+                outsiderCheckbox.setSelected(false);
+            }
+
+            if (doubleFacedCheckbox != null) {
+                doubleFacedCheckbox.setSelected(false);
+            }
+
+            if (flirtCheckbox != null) {
+                flirtCheckbox.setSelected(false);
+            }
+
             return;
         }
 
-        StringBuilder text = new StringBuilder();
-        for(Role role: roles){
-            text.append(Role.getRoleName(role)).append(" \n");
+        for (Role role : roles) {
+            if (role.equals(Role.LEADER)) {
+                leaderCheckbox.setSelected(true);
+            }
+
+            if (role.equals(Role.OUTSIDER)) {
+                outsiderCheckbox.setSelected(true);
+            }
+
+            if (role.equals(Role.DOUBLE_FACED)) {
+                doubleFacedCheckbox.setSelected(true);
+            }
+
+            if (role.equals(Role.FLIRT)) {
+                flirtCheckbox.setSelected(true);
+            }
         }
-        rolesField.setText(text.toString());
+    }
+
+    /**
+     * Gets the name from the name field.
+     */
+    public String getName() {
+        return nameField.getText();
     }
 }

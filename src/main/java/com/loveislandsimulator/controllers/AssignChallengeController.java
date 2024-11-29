@@ -1,9 +1,15 @@
 package com.loveislandsimulator.controllers;
 
 import com.loveislandsimulator.controllers.base.BaseController;
+import com.loveislandsimulator.controllers.components.IslanderController;
+import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.models.ChallengeCommand;
 import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
+import com.loveislandsimulator.roles.DoubleFacedRole;
+import com.loveislandsimulator.roles.FlirtRole;
+import com.loveislandsimulator.roles.LeaderRole;
+import com.loveislandsimulator.roles.OutsiderRole;
 import com.loveislandsimulator.utilities.ControllerUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -57,7 +63,6 @@ public class AssignChallengeController extends BaseController {
         }
     }
 
-
     /**
      * Handles the button click action of the "random" button.
      */
@@ -82,9 +87,32 @@ public class AssignChallengeController extends BaseController {
         List<Islander> islanders = GameData.getInstance().getIslanders();
         ChallengeCommand challenge = findChallenge(challengeComboBox.getValue());
 
-        for (Islander islander : islanders) {
-            islander.participateInChallenge(challenge);
-        }
+        // Iterate through islanders and decorate their roles
+        islandersContainer.getChildren().forEach(node -> {
+            // Access the IslanderController from the FXML component
+            IslanderController controller = (IslanderController) node.getUserData(); // Ensure you set user data during population
+            Islander islander = islanders
+                    .stream()
+                    .filter(i -> i.getName().equals(controller.getName()))
+                    .findFirst()
+                    .orElse(null);
+
+            if (islander != null) {
+                List<Role> roles = controller.getRoles(); // Get roles from checkboxes
+                System.out.println(roles);
+                for (Role role : roles) {
+                    switch (role) {
+                        case LEADER -> islander = new LeaderRole(islander);
+                        case OUTSIDER -> islander = new OutsiderRole(islander);
+                        case DOUBLE_FACED -> islander = new DoubleFacedRole(islander);
+                        case FLIRT -> islander = new FlirtRole(islander);
+                    }
+                }
+
+                // Participate in the challenge after decorating roles
+                islander.participateInChallenge(challenge);
+            }
+        });
 
         switchToView("challenge-results");
     }
