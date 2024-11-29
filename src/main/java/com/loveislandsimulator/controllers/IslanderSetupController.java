@@ -20,6 +20,7 @@ import java.util.Random;
 import com.loveislandsimulator.utilities.Utils;
 
 import static com.loveislandsimulator.utilities.ControllerUtils.showErrorPopup;
+import static com.loveislandsimulator.utilities.Utils.resetAvailableNames;
 
 /**
  * Controller for the Islander Setup view. This view is used to set all initial values for the islanders.
@@ -46,6 +47,8 @@ public class IslanderSetupController extends BaseController {
 
     @FXML
     public void initialize() {
+        resetAvailableNames();
+
         try {
             GridPane gridPane = new GridPane();
             gridPane.setHgap(20);
@@ -81,6 +84,7 @@ public class IslanderSetupController extends BaseController {
      *  name and strategy.
      */
     public void onRandomizeButtonClick() {
+        Utils.resetAvailableNames(); // reset name list when randomize all is clicked
         controllers.forEach(controller -> {
             randomizeName(controller);
             randomizeStrategy(controller);
@@ -140,6 +144,18 @@ public class IslanderSetupController extends BaseController {
 
         if (nameField.getText() == null || nameField.getText().trim().isEmpty()) {
             showErrorPopup("Field validation failed. Please be sure the names of all islanders are populated with a value.");
+            return false;
+        }
+
+        // Check for duplicate names
+        String name = nameField.getText().trim();
+        long duplicateCount = controllers.stream()
+                .map(c -> c.getNameField().getText().trim())
+                .filter(n -> n.equalsIgnoreCase(name))
+                .count();
+
+        if (duplicateCount > 1) {
+            showErrorPopup("Field validation failed. Each islander must have a unique name. Duplicate name found: " + name);
             return false;
         }
 
