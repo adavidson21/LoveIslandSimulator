@@ -26,18 +26,6 @@ public class NewIslanderController {
 
     @FXML
     private TextField nameField;
-
-    @FXML
-    private CheckBox leaderCheckBox;
-
-    @FXML
-    private CheckBox outsiderCheckBox;
-
-    @FXML
-    private CheckBox flirtCheckBox;
-
-    @FXML
-    private CheckBox doubleFacedCheckBox;
     //#endregion
 
     @FXML
@@ -73,22 +61,6 @@ public class NewIslanderController {
 
     public ComboBox<String> getStrategyComboBox() {
         return strategyComboBox;
-    }
-
-    public CheckBox getLeaderCheckBox() {
-        return leaderCheckBox;
-    }
-
-    public CheckBox getOutsiderCheckBox() {
-        return outsiderCheckBox;
-    }
-
-    public CheckBox getFlirtCheckBox() {
-        return flirtCheckBox;
-    }
-
-    public CheckBox getDoubleFacedCheckBox() {
-        return doubleFacedCheckBox;
     }
     //#endregion
 }
