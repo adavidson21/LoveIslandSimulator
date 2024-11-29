@@ -1,7 +1,7 @@
 package com.loveislandsimulator.controllers;
 
 import com.loveislandsimulator.controllers.base.BaseController;
-import com.loveislandsimulator.observers.ChallengeLogObserver;
+import com.loveislandsimulator.models.ChallengeLogObserver;
 import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
 import com.loveislandsimulator.utilities.ControllerUtils;

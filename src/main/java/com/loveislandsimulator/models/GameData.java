@@ -1,6 +1,5 @@
 package com.loveislandsimulator.models;
 
-import com.loveislandsimulator.observers.ChallengeLogObserver;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -138,4 +137,6 @@ public class GameData {
     public void incrementCompleted(){
         challengeCount++;
     }
+
+
 }

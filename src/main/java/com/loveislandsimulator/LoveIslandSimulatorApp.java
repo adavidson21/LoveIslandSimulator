@@ -1,9 +1,7 @@
 package com.loveislandsimulator;
 
-import com.loveislandsimulator.challenges.PhysicalChallenge;
-import com.loveislandsimulator.challenges.SocialChallenge;
-import com.loveislandsimulator.challenges.TriviaChallenge;
 import com.loveislandsimulator.controllers.base.SceneController;
+import com.loveislandsimulator.factories.ChallengeFactory;
 import com.loveislandsimulator.models.GameData;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -39,9 +37,9 @@ public class LoveIslandSimulatorApp extends Application {
      */
     private void initializeGameData() {
         GameData gameData = GameData.getInstance(); // eager instantiation of singleton
-        gameData.addChallenge(new PhysicalChallenge());
-        gameData.addChallenge(new SocialChallenge());
-        gameData.addChallenge(new TriviaChallenge());
+        gameData.addChallenge(ChallengeFactory.createChallenge("physical"));
+        gameData.addChallenge(ChallengeFactory.createChallenge("social"));
+        gameData.addChallenge(ChallengeFactory.createChallenge("trivia"));
     }
 
     /**

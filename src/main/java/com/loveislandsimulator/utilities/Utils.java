@@ -8,9 +8,7 @@ import java.util.Random;
  * Utility methods to be used across the application.
  */
 public class Utils {
-    private static Random random = new Random();
-
-    // Static list of names to use to randomly populate islander names.
+    private static final Random random = new Random();
     private static final List<String> availableNames = new ArrayList<>(List.of(
             "Alex", "Jordan", "Taylor", "Casey", "Riley", "Morgan", "Jamie", "Drew",
             "Sydney", "Peyton", "Avery", "Quinn", "Charlie", "Cameron", "Rowan",
@@ -20,7 +18,6 @@ public class Utils {
 
     /**
      * Gets a random name from a list of predefined names and removes it from the available names list.
-     *
      * @return The randomly selected unique name.
      */
     public static String getRandomName() {
