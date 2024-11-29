@@ -3,19 +3,21 @@ package com.loveislandsimulator.roles;
 import com.loveislandsimulator.decorators.RoleDecorator;
 import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.models.ChallengeCommand;
+import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
 
 public class SurvivorRole extends RoleDecorator {
-    
-    public SurvivorRole(Contestant islander) {
-        super(islander);
+
+    public SurvivorRole(Islander islander) {
+        super(islander, Role.SURVIVOR);
     }
 
     @Override
-    public void addPoints(double points) {
-        double wrappedPoints = points + 5;
-        super.addPoints(wrappedPoints);
-        System.out.println(this.wrappedIslander.getName() + " applied Survivor role for 5 extra points...");
+    public void participateInChallenge(ChallengeCommand challenge) {
+        super.participateInChallenge(challenge);
+        super.addPoints(5);
+        String message = this.islander.getName() + " applied Survivor role for 5 extra points...";
+        GameData.getInstance().addLogMessage(message);
     }
 
 }

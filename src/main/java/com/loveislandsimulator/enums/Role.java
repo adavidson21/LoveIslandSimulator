@@ -1,17 +1,23 @@
 package com.loveislandsimulator.enums;
 
 public enum Role {
-    OUTSIDER,
-    DOUBLE_FACED,
+    REBEL,
+    SURVIVOR,
     FLIRT,
     LEADER;
 
+    /**
+     * Gets the user-friendly role name from the role enum.
+     *
+     * @param role The role.
+     * @return The name of the role.
+     */
     public static String getRoleName(Role role){
         return switch (role) {
-            case Role.DOUBLE_FACED -> "Double Faced";
+            case Role.SURVIVOR -> "Survivor";
             case Role.FLIRT -> "Flirt";
             case Role.LEADER -> "Leader";
-            case Role.OUTSIDER -> "Outsider";
+            case Role.REBEL -> "Rebel";
         };
     }
 }

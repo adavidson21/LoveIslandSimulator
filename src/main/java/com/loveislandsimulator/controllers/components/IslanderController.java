@@ -27,13 +27,13 @@ public class IslanderController {
     private CheckBox leaderCheckbox;
 
     @FXML
-    private CheckBox doubleFacedCheckbox;
+    private CheckBox survivorCheckbox;
 
     @FXML
     private CheckBox flirtCheckbox;
 
     @FXML
-    private CheckBox outsiderCheckbox;
+    private CheckBox rebelCheckbox;
 
     @FXML
     private Text scoreField;
@@ -87,12 +87,12 @@ public class IslanderController {
             roles.add(Role.LEADER);
         }
 
-        if (outsiderCheckbox.isSelected()) {
-            roles.add(Role.OUTSIDER);
+        if (rebelCheckbox.isSelected()) {
+            roles.add(Role.REBEL);
         }
 
-        if (doubleFacedCheckbox.isSelected()) {
-            roles.add(Role.DOUBLE_FACED);
+        if (survivorCheckbox.isSelected()) {
+            roles.add(Role.SURVIVOR);
         }
 
         if (flirtCheckbox.isSelected()) {
@@ -112,12 +112,12 @@ public class IslanderController {
                 leaderCheckbox.setSelected(false);
             }
 
-            if (outsiderCheckbox != null) {
-                outsiderCheckbox.setSelected(false);
+            if (rebelCheckbox != null) {
+                rebelCheckbox.setSelected(false);
             }
 
-            if (doubleFacedCheckbox != null) {
-                doubleFacedCheckbox.setSelected(false);
+            if (survivorCheckbox != null) {
+                survivorCheckbox.setSelected(false);
             }
 
             if (flirtCheckbox != null) {
@@ -132,12 +132,12 @@ public class IslanderController {
                 leaderCheckbox.setSelected(true);
             }
 
-            if (role.equals(Role.OUTSIDER)) {
-                outsiderCheckbox.setSelected(true);
+            if (role.equals(Role.REBEL)) {
+                rebelCheckbox.setSelected(true);
             }
 
-            if (role.equals(Role.DOUBLE_FACED)) {
-                doubleFacedCheckbox.setSelected(true);
+            if (role.equals(Role.SURVIVOR)) {
+                survivorCheckbox.setSelected(true);
             }
 
             if (role.equals(Role.FLIRT)) {

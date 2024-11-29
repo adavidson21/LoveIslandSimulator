@@ -69,14 +69,14 @@
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                 <CheckBox fx:id="leaderCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0"
                           text="Leader"/>
-                <CheckBox fx:id="outsiderCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="117.0"
-                          text="Outsider"/>
+                <CheckBox fx:id="survivorCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="117.0"
+                          text="Survivor"/>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
                 <CheckBox fx:id="flirtCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0"
                           text="Flirt"/>
-                <CheckBox fx:id="doubleFacedCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="117.0"
-                          text="Double-Faced"/>
+                <CheckBox fx:id="rebelCheckbox" mnemonicParsing="false" prefHeight="18.0" prefWidth="117.0"
+                          text="Rebel"/>
             </HBox>
         </children>
     </VBox>

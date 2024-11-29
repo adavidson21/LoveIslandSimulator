@@ -6,10 +6,10 @@ import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.models.ChallengeCommand;
 import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
-import com.loveislandsimulator.roles.DoubleFacedRole;
 import com.loveislandsimulator.roles.FlirtRole;
 import com.loveislandsimulator.roles.LeaderRole;
-import com.loveislandsimulator.roles.OutsiderRole;
+import com.loveislandsimulator.roles.RebelRole;
+import com.loveislandsimulator.roles.SurvivorRole;
 import com.loveislandsimulator.utilities.ControllerUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -103,8 +103,8 @@ public class AssignChallengeController extends BaseController {
                 for (Role role : roles) {
                     switch (role) {
                         case LEADER -> islander = new LeaderRole(islander);
-                        case OUTSIDER -> islander = new OutsiderRole(islander);
-                        case DOUBLE_FACED -> islander = new DoubleFacedRole(islander);
+                        case REBEL -> islander = new RebelRole(islander);
+                        case SURVIVOR -> islander = new SurvivorRole(islander);
                         case FLIRT -> islander = new FlirtRole(islander);
                     }
                 }
