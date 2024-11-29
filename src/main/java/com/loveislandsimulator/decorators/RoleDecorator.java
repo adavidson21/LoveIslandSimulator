@@ -1,68 +1,43 @@
-package com.loveislandsimulator.decorators;
+public abstract class RoleDecorator implements Contestant {
+    
+    protected Contestant wrappedIslander;
 
-import com.loveislandsimulator.enums.Role;
-import com.loveislandsimulator.models.ChallengeCommand;
-import com.loveislandsimulator.models.Islander;
-import com.loveislandsimulator.strategies.IslanderBehaviorStrategy;
-
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * The RoleDecorator abstract class wraps around an Islander object and allows additional roles to be associated with the Islander.
- * Design Pattern: Decorator Pattern
- */
-public abstract class RoleDecorator extends Islander {
-    protected Islander islander;
-    private final Role role;
-
-    public RoleDecorator(Islander islander, Role role) {
-        super(islander.getName());
-        this.islander = islander;
-        this.role = role;
-    }
-
-    /**
-     * Gets all roles for the islander.
-     *
-     * @return The list of roles.
-     */
-    public List<Role> getRoles() {
-        List<Role> roles = new ArrayList<>();
-        if (islander instanceof RoleDecorator) {
-            roles.addAll(islander.getRoles());
-        }
-        roles.add(this.role);
-        return roles;
-    }
-
-    @Override
-    public void participateInChallenge(ChallengeCommand challenge) {
-        islander.participateInChallenge(challenge);
-    }
-
-    @Override
-    public int getScore() {
-        return islander.getScore();
-    }
-
-    @Override
-    public void addPoints(int points) {
-        islander.addPoints(points);
-    }
-
-    @Override
-    public IslanderBehaviorStrategy getBehaviorStrategy() {
-        return islander.getBehaviorStrategy();
-    }
-
-    @Override
-    public void setBehaviorStrategy(IslanderBehaviorStrategy strategy) {
-        islander.setBehaviorStrategy(strategy);
+    public RoleDecorator(Contestant islander) {
+        this.wrappedIslander = islander;
     }
 
     @Override
     public String getName() {
-        return islander.getName();
+        return wrappedIslander.getName();
+    }
+
+    @Override
+    public double getScore() {
+        return wrappedIslander.getScore();
+    }
+
+    @Override
+    public void addPoints(double points) {
+        wrappedIslander.addPoints(points);
+    }
+
+    @Override
+    public BehaviorStrategy getStrategy() {
+        return wrappedIslander.getStrategy();
+    }
+
+    @Override
+    public void setStrategy(BehaviorStrategy strategy) {
+        wrappedIslander.setStrategy(strategy);
+    }
+
+    @Override
+    public double applyStrategy(double points) {
+        return wrappedIslander.applyStrategy(points);
+    }
+    
+    @Override
+    public void scoreStatus() {
+        wrappedIslander.scoreStatus();
     }
 }
