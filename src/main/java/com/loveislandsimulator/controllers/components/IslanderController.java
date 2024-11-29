@@ -42,6 +42,7 @@ public class IslanderController {
     private ImageView avatarImage;
  //#endregion
 
+    //#region Getters and Setters
     /**
      * Sets the score field on the UI.
      *
@@ -83,19 +84,19 @@ public class IslanderController {
     public List<Role> getRoles() {
         List<Role> roles = new ArrayList<>();
 
-        if (leaderCheckbox.isSelected()) {
+        if (leaderCheckbox != null && leaderCheckbox.isSelected()) {
             roles.add(Role.LEADER);
         }
 
-        if (rebelCheckbox.isSelected()) {
+        if (rebelCheckbox != null && rebelCheckbox.isSelected()) {
             roles.add(Role.REBEL);
         }
 
-        if (survivorCheckbox.isSelected()) {
+        if (survivorCheckbox != null && survivorCheckbox.isSelected()) {
             roles.add(Role.SURVIVOR);
         }
 
-        if (flirtCheckbox.isSelected()) {
+        if (flirtCheckbox != null && flirtCheckbox.isSelected()) {
             roles.add(Role.FLIRT);
         }
 
@@ -107,41 +108,11 @@ public class IslanderController {
      * @param roles The list of roles to set.
      */
     public void setRoles(List<Role> roles) {
-        if (roles == null || roles.isEmpty()) {
-            if (leaderCheckbox != null) {
-                leaderCheckbox.setSelected(false);
-            }
+        resetRoleCheckBoxes();
 
-            if (rebelCheckbox != null) {
-                rebelCheckbox.setSelected(false);
-            }
-
-            if (survivorCheckbox != null) {
-                survivorCheckbox.setSelected(false);
-            }
-
-            if (flirtCheckbox != null) {
-                flirtCheckbox.setSelected(false);
-            }
-
-            return;
-        }
-
-        for (Role role : roles) {
-            if (role.equals(Role.LEADER)) {
-                leaderCheckbox.setSelected(true);
-            }
-
-            if (role.equals(Role.REBEL)) {
-                rebelCheckbox.setSelected(true);
-            }
-
-            if (role.equals(Role.SURVIVOR)) {
-                survivorCheckbox.setSelected(true);
-            }
-
-            if (role.equals(Role.FLIRT)) {
-                flirtCheckbox.setSelected(true);
+        if (roles != null) {
+            for (Role role : roles) {
+                setRoleCheckbox(role, true);
             }
         }
     }
@@ -163,5 +134,48 @@ public class IslanderController {
      */
     public String getName() {
         return nameField.getText();
+    }
+
+    //#endregion
+
+    /**
+     * Resets all role checkboxes to unselected.
+     */
+    private void resetRoleCheckBoxes() {
+        setRoleCheckbox(Role.LEADER, false);
+        setRoleCheckbox(Role.REBEL, false);
+        setRoleCheckbox(Role.SURVIVOR, false);
+        setRoleCheckbox(Role.FLIRT, false);
+    }
+
+    /**
+     * Updates a specific checkbox based on the role.
+     *
+     * @param role     The role.
+     * @param selected Whether the checkbox should be selected.
+     */
+    private void setRoleCheckbox(Role role, boolean selected) {
+        switch (role) {
+            case LEADER -> {
+                if (leaderCheckbox != null) {
+                    leaderCheckbox.setSelected(selected);
+                }
+            }
+            case REBEL -> {
+                if (rebelCheckbox != null) {
+                    rebelCheckbox.setSelected(selected);
+                }
+            }
+            case SURVIVOR -> {
+                if (survivorCheckbox != null) {
+                    survivorCheckbox.setSelected(selected);
+                }
+            }
+            case FLIRT -> {
+                if (flirtCheckbox != null) {
+                    flirtCheckbox.setSelected(selected);
+                }
+            }
+        }
     }
 }

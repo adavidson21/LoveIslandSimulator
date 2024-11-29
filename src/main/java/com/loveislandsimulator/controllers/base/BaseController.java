@@ -3,6 +3,9 @@ package com.loveislandsimulator.controllers.base;
 import com.loveislandsimulator.LoveIslandSimulatorApp;
 import com.loveislandsimulator.models.AppController;
 
+/**
+ * Base controller class providing shared functionality for all controllers in the app.
+ */
 public class BaseController implements AppController {
     protected LoveIslandSimulatorApp app;
 
