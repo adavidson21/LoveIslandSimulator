@@ -8,6 +8,7 @@ import com.loveislandsimulator.models.Islander;
  * Implementation of an aggressive behavior strategy for an Islander.
  */
 public class AggressiveStrategy implements IslanderBehaviorStrategy {
+    private final String name = "Aggressive";
 
     /**
      * Returns the name of this strategy.
@@ -16,7 +17,7 @@ public class AggressiveStrategy implements IslanderBehaviorStrategy {
      */
     @Override
     public String getStrategyName() {
-        return "Aggressive";
+        return this.name;
     }
 
     /**

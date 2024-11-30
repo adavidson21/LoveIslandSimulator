@@ -8,6 +8,8 @@ import com.loveislandsimulator.models.Islander;
  * Implementation of a passive behavior strategy for an Islander.
  */
 public class PassiveStrategy implements IslanderBehaviorStrategy {
+    private final String name = "Passive";
+
     /**
      * Returns the name of this strategy.
      *
@@ -15,7 +17,7 @@ public class PassiveStrategy implements IslanderBehaviorStrategy {
      */
     @Override
     public String getStrategyName() {
-        return "Passive";
+        return this.name;
     }
 
     /**

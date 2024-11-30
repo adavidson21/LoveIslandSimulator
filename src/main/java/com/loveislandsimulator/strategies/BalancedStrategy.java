@@ -8,6 +8,7 @@ import com.loveislandsimulator.models.Islander;
  * Implementation of a balanced behavior strategy for an Islander.
  */
 public class BalancedStrategy implements IslanderBehaviorStrategy {
+    private final String name = "Balanced";
 
     /**
      * Returns the name of this strategy.
@@ -16,7 +17,7 @@ public class BalancedStrategy implements IslanderBehaviorStrategy {
      */
     @Override
     public String getStrategyName() {
-        return "Balanced";
+        return this.name;
     }
 
     /**
