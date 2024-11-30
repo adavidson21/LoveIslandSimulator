@@ -5,6 +5,8 @@ import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
 
 public class PhysicalChallenge implements ChallengeCommand {
+    private final String name = "Physical Challenge";
+    private final String description = "Islanders face a physically demanding task that requires strength, agility, and endurance to compete to score points.";
 
     @Override
     public void execute(Islander islander) {
@@ -16,11 +18,11 @@ public class PhysicalChallenge implements ChallengeCommand {
 
     @Override
     public String getDescription(){
-        return "Islanders face a physically demanding task that requires strength, agility, and endurance to compete to score points.";
+        return this.description;
     }
 
     @Override
     public String getName(){
-        return "Physical Challenge";
+        return this.name;
     }
 }

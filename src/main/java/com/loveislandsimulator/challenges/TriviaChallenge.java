@@ -5,6 +5,9 @@ import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
 
 public class TriviaChallenge implements ChallengeCommand {
+    private final String name = "Trivia Challenge";
+    private final String description = "Islanders are quizzed on a variety of topics to demonstrate their knowledge and quick thinking, competing for points.";
+
     @Override
     public void execute(Islander islander) {
         int score = (int) (Math.random() * 10 + 1);
@@ -15,11 +18,11 @@ public class TriviaChallenge implements ChallengeCommand {
 
     @Override
     public String getDescription(){
-        return "Islanders are quizzed on a variety of topics to demonstrate their knowledge and quick thinking, competing for points.";
+        return this.description;
     }
 
     @Override
     public String getName(){
-        return "Trivia Challenge";
+        return this.name;
     }
 }
