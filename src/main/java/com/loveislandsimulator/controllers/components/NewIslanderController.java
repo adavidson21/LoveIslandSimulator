@@ -1,8 +1,8 @@
 package com.loveislandsimulator.controllers.components;
 
 import com.loveislandsimulator.strategies.IslanderBehaviorStrategy;
+import com.loveislandsimulator.utilities.Utils;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -31,7 +31,7 @@ public class NewIslanderController {
     @FXML
     public void initialize() {
         // Initialize strategies for combobox
-        for (IslanderBehaviorStrategy strategy : IslanderBehaviorStrategy.getAllStrategies()) {
+        for (IslanderBehaviorStrategy strategy : Utils.getAllStrategies()) {
             strategyComboBox.getItems().add(strategy.getStrategyName());
         }
     }

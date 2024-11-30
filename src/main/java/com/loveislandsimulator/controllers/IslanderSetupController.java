@@ -39,7 +39,7 @@ public class IslanderSetupController extends BaseController {
      */
     public IslanderSetupController() {
         // Get friendly strategy names for GUI
-        List<IslanderBehaviorStrategy> strategies = IslanderBehaviorStrategy.getAllStrategies();
+        List<IslanderBehaviorStrategy> strategies = Utils.getAllStrategies();
         for(IslanderBehaviorStrategy strategy: strategies){
             this.strategies.add(strategy.getStrategyName());
         }
@@ -107,7 +107,7 @@ public class IslanderSetupController extends BaseController {
             Islander islander = new Islander(name);
 
             islander.setAvatar(controller.getAvatar());
-            islander.setBehaviorStrategy(IslanderBehaviorStrategy.fromString(strategy));
+            islander.setBehaviorStrategy(Utils.strategyFromString(strategy));
             GameData.getInstance().addIslander(islander);
         }
 
