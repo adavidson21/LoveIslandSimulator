@@ -28,19 +28,4 @@ public class RoleDecoratorFactory {
             case LEADER -> new LeaderRole(islander);
         };
     }
-
-    /**
-     * Gets the user-friendly role name from the role enum.
-     *
-     * @param role The role.
-     * @return The name of the role.
-     */
-    public static String getRoleName(Role role) {
-        return switch (role) {
-            case REBEL -> "Rebel";
-            case SURVIVOR -> "Survivor";
-            case FLIRT -> "Flirt";
-            case LEADER -> "Leader";
-        };
-    }
 }

@@ -1,21 +1,22 @@
 package com.loveislandsimulator.roles;
 
 import com.loveislandsimulator.decorators.RoleDecorator;
-import com.loveislandsimulator.enums.Role;
-import com.loveislandsimulator.factories.RoleDecoratorFactory;
 import com.loveislandsimulator.models.ChallengeCommand;
+import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
 
 public class FlirtRole extends RoleDecorator {
 
     public FlirtRole(Islander islander) {
-        super(islander, Role.FLIRT);
+        super(islander);
     }
 
     @Override
     public void participateInChallenge(ChallengeCommand challenge) {
         super.participateInChallenge(challenge);
-        System.out.println(islander.getName() + ", " + RoleDecoratorFactory.getRoleName(Role.FLIRT));
+        islander.addPoints(8);
+        String message = this.islander.getName() + " applied Flirt role for 8 extra points...";
+        GameData.getInstance().addLogMessage(message);
     }
 }
 

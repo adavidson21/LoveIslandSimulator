@@ -1,7 +1,6 @@
 package com.loveislandsimulator.roles;
 
 import com.loveislandsimulator.decorators.RoleDecorator;
-import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.models.ChallengeCommand;
 import com.loveislandsimulator.models.GameData;
 import com.loveislandsimulator.models.Islander;
@@ -9,7 +8,7 @@ import com.loveislandsimulator.models.Islander;
 public class LeaderRole extends RoleDecorator {
 
     public LeaderRole(Islander islander) {
-        super(islander, Role.LEADER);
+        super(islander);
     }
 
     @Override

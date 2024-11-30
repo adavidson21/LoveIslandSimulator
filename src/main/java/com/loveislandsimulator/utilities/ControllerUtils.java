@@ -68,7 +68,6 @@ public class ControllerUtils {
                 controller.setAvatar(islander.getAvatar());
                 controller.setName(islander.getName());
                 controller.setStrategyField(islander.getBehaviorStrategy());
-                controller.setRoles(islander.getRoles());
                 controller.setScore(islander.getScore());
                 controller.setRolesEditable(isRolesEditable);
 

@@ -1,12 +1,8 @@
 package com.loveislandsimulator.decorators;
 
-import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.models.ChallengeCommand;
 import com.loveislandsimulator.models.Islander;
 import com.loveislandsimulator.strategies.IslanderBehaviorStrategy;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The RoleDecorator abstract class wraps around an Islander object and allows additional roles to be associated with the Islander.
@@ -14,26 +10,10 @@ import java.util.List;
  */
 public abstract class RoleDecorator extends Islander {
     protected Islander islander;
-    private final Role role;
 
-    public RoleDecorator(Islander islander, Role role) {
+    public RoleDecorator(Islander islander) {
         super(islander.getName());
         this.islander = islander;
-        this.role = role;
-    }
-
-    /**
-     * Gets all roles for the islander.
-     *
-     * @return The list of roles.
-     */
-    public List<Role> getRoles() {
-        List<Role> roles = new ArrayList<>();
-        if (islander instanceof RoleDecorator) {
-            roles.addAll(islander.getRoles());
-        }
-        roles.add(this.role);
-        return roles;
     }
 
     @Override

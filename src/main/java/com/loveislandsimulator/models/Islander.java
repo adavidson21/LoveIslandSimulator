@@ -1,12 +1,9 @@
 package com.loveislandsimulator.models;
 
-import com.loveislandsimulator.enums.Role;
 import com.loveislandsimulator.strategies.IslanderBehaviorStrategy;
 import javafx.scene.image.Image;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Represents an Islander that is a contestant in the Love Island game.
@@ -20,15 +17,6 @@ public class Islander implements Serializable {
     public Islander(String name) {
         this.name = name;
         this.score = 0;
-    }
-
-    /**
-     * Default getRoles method to return an empty list for an islander that is not decorated.
-     *
-     * @return An empty list.
-     */
-    public List<Role> getRoles() {
-        return new ArrayList<>();
     }
 
     /**

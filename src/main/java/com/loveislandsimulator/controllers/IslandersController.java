@@ -59,7 +59,6 @@ public class IslandersController extends BaseController {
                     controller.setAvatar(islander.getAvatar());
                     controller.setName(islander.getName());
                     controller.setStrategyField(islander.getBehaviorStrategy());
-                    controller.setRoles(islander.getRoles());
 
                     int row = i / 2;  // Each row has 2 items
                     int col = i % 2;  // Alternates between 0 (left) and 1 (right)
