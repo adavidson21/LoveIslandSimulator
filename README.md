@@ -38,6 +38,7 @@ The Love Island Simulator is a reality game show-inspired application where play
 - **Strategy Pattern**: Assigns flexible behaviors to islanders during challenges.
 - **Decorator Pattern**: Adds dynamic roles to islanders during gameplay.
 - **Singleton Pattern**: Tracks and updates scores centrally.
+- **Factory Pattern**: Simpifies and standardizes the creation of roles and challenges.
 
 
 ---
@@ -66,12 +67,12 @@ The Love Island Simulator is a reality game show-inspired application where play
   - Managed challenge execution, behaviors, and score tracking.
 
 - **Alexis Davidson**:
-  - Developed role-based features using the Decorator Pattern.
-  - Integrated role and behavior interplay during gameplay.
-
-- **Khushi Patel**:
   - Managed game data and challenges with the `GameData` singleton.
   - Implemented scene controllers and JavaFX UI navigation.
+
+- **Khushi Patel**:
+  - Developed role-based features using the Decorator Pattern.
+  - Integrated role and behavior interplay during gameplay.
 
 ---
 
