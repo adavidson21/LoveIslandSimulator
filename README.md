@@ -54,7 +54,7 @@ The Love Island Simulator is a reality game show-inspired application where play
 1. Clone the repository:
    ```bash
    git clone https://github.com/adavidson21/LoveIslandSimulator.git
-2. Open the project in IntelliJ IDEA or your preferred IDE.
+2. Open the project in Visual Studio Code or your preferred IDE.
 3. Ensure JavaFX libraries are set up in your project.
 4. Run LoveIslandSimulatorApp.java.
 
