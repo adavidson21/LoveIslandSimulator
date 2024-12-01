@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * Controller for the individual Islander component. This component is used after the islanders have been initialized.
- * Associated FXML: islander-component.fxml
+ * Associated FXML: islander-component.fxml & small-islander-component.fxml
  */
 public class IslanderController {
     //#region FXML Properties
@@ -40,6 +40,9 @@ public class IslanderController {
 
     @FXML
     private ImageView avatarImage;
+
+    @FXML
+    private Text rolesTitle;
  //#endregion
 
     //#region Getters and Setters
@@ -118,15 +121,16 @@ public class IslanderController {
     }
 
     /**
-     * Sets whether the checkboxes for roles are editable.
+     * Sets whether the role checkboxes are visible.
      *
-     * @param editable True if the checkboxes should be editable, false otherwise.
+     * @param visible True if the checkboxes should be visible, false otherwise.
      */
-    public void setRolesEditable(boolean editable) {
-        leaderCheckbox.setDisable(!editable);
-        survivorCheckbox.setDisable(!editable);
-        rebelCheckbox.setDisable(!editable);
-        flirtCheckbox.setDisable(!editable);
+    public void setRolesVisible(boolean visible) {
+        if (leaderCheckbox != null) leaderCheckbox.setVisible(visible);
+        if (rebelCheckbox != null) rebelCheckbox.setVisible(visible);
+        if (survivorCheckbox != null) survivorCheckbox.setVisible(visible);
+        if (flirtCheckbox != null) flirtCheckbox.setVisible(visible);
+        if (rolesTitle != null) rolesTitle.setVisible(visible);
     }
 
     /**

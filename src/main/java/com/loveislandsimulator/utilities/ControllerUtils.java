@@ -50,7 +50,7 @@ public class ControllerUtils {
      * @param islanders     The list of islanders to display.
      * @param componentPath The FXML path of the islander component.
      */
-    public static void populateIslanders(Pane container, List<Islander> islanders, String componentPath, boolean isRolesEditable) {
+    public static void populateIslanders(Pane container, List<Islander> islanders, String componentPath, boolean isRolesVisible) {
         container.getChildren().clear();
         if (islanders.isEmpty()) return;
 
@@ -69,7 +69,7 @@ public class ControllerUtils {
                 controller.setName(islander.getName());
                 controller.setStrategyField(islander.getBehaviorStrategy());
                 controller.setScore(islander.getScore());
-                controller.setRolesEditable(isRolesEditable);
+                controller.setRolesVisible(isRolesVisible);
 
                 islanderComponent.setUserData(controller);
 
